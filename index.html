@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>EMGBench</title>
+    <title>LAMS</title>
 
     <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
@@ -42,22 +42,9 @@
                     </h3>
                         <div class="is-size-5 publication-authors">
                             <span class="author-block">
-                                <a target="_blank" href="https://jehanyang.github.io/about/">
-                                    Jehan Yang</a><sup>*</sup>,
-                                <a target="_blank">Maxwell Soh</a><sup>*</sup>,
-                                <a target="_blank">Vivianna Lieu</a><sup></sup>,
-                                <a target="_blank"
-                                    href="https://www.meche.engineering.cmu.edu/directory/bios/weber-douglas.html/">Douglas J. Weber</a><sup></sup>,
-                                <a target="_blank"
-                                    href="https://zackory.com/">Zackory Erickson</a><sup></sup>
+                                <a target="_blank">
+                                    Anonymous Authors</a>
                             </span>
-                        </div>
-
-                        <div class="is-size-5 publication-authors">
-                            <span class="author-block"><sup></sup>Carnegie Mellon University </span>
-                        </div>
-                        <div class="is-size-5 publication-authors">
-                            <span class="author-block"><sup>*</sup>Equal Contribution </span>
                         </div>
                         <!-- <div class="is-size-5 publication-authors">
                         <span class="author-block">Work done during the first author's internship at NVIDIA</span>
@@ -129,18 +116,7 @@
                     <h2 class="title is-3">Abstract</h2>
                     <div class="content has-text-justified">
                         <p style="font-size: 125%">
-                            This paper introduces the first generalization and adaptation benchmark using machine learning for evaluating 
-                            out-of-distribution performance of electromyography (EMG) classification algorithms. The ability of an EMG 
-                            classifier to handle inputs drawn from a different distribution than the training distribution is critical 
-                            for real-world deployment as a control interface. By predicting the user’s intended gesture using EMG signals, 
-                            we can create a wearable solution to control assistive technologies, such as computers, prosthetics, and mobile 
-                            manipulator robots. This new out-of-distribution benchmark consists of two major tasks that have utility for 
-                            building robust and adaptable control interfaces: 1) intersubject classification, and 2) adaptation using 
-                            train-test splits for time-series. This benchmark spans six datasets, the largest collection of EMG datasets 
-                            in a benchmark. Among these, a new dataset is introduced, featuring a novel, easy-to-wear high-density EMG 
-                            wearable for data collection. The lack of open-source benchmarks has made comparing accuracy results between 
-                            papers challenging for the EMG research community. This new benchmark provides researchers with a valuable 
-                            resource for analyzing practical measures of out-of-distribution performance for EMG datasets.
+                            Operating robotic manipulators through interfaces like joysticks often requires frequent switching between control modes, where each mode maps the joystick's movements to specific actions on the robot. This frequent switching can make teleoperation cumbersome and inefficient, especially in assistive applications where users with motor impairments rely on simplified control interfaces. Existing shared autonomy solutions, such as heuristic-driven or demonstration-based methods, tend to be task-specific and lack generalizability. In this paper, we introduce LLM-Driven Automatic Mode Switching (LAMS), which leverages Large Language Models (LLMs) to automatically switch control modes based on task context, enabling more intuitive control without requiring task-specific adjustments. Unlike existing approaches, LAMS requires no prior task demonstrations and incrementally adapts to user behavior over time by incorporating mode-switching examples into its prompts. We validate LAMS on long-horizon tasks through an ablation study and a user study with 10 participants, showing that LAMS significantly reduces manual switches and is preferred over other methods.
 
 <br>
 <br>
