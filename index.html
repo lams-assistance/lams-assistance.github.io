@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>LAMS</title>
+    <link rel="icon" href="assets/images/logo.png" type="image/png">
 
     <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
@@ -36,7 +37,7 @@
                 <div class="columns is-centered">
                     <div class="column has-text-centered">
                         <h1 class="title is-1 publication-title">
-                          <img src="assets/images/logo.png" class="small-image" style="width: 70px; height: 35px; vertical-align: middle; margin-top: -8px; margin-right: 4px">LAMS
+                            <img src="assets/images/logo.png" class="small-image"><span style="color: rgb(24, 209, 207);">L</span><span style="color: rgb(18, 156, 189);">A</span><span style="color: rgb(13, 104, 171);">M</span><span style="color: rgb(8, 52, 154);">S</span>: LLM-Driven Automatic Mode Switching for Assistive Teleoperation
                         </h1>
                     </h3>
                         <div class="is-size-5 publication-authors">
@@ -101,8 +102,9 @@
         <div class="container is-max-desktop">
             <!-- Abstract. -->
             <div class="columns is-centered has-text-centered">
-                <img src="assets/images/benchmark-datasets.png" class="interpolation-image" alt=""
-                style="display: block; margin-left: auto; margin-right: auto; max-width: 80%;" /> 
+                <video poster="" id="" autoplay controls loop width="100%" playbackRate=2.0 style="border-radius: 5px;">
+                    <source src="assets/videos/lams.mp4" type="video/mp4">
+                </video>
             </div>
         </div>
     </section>
@@ -115,7 +117,7 @@
                     <h2 class="title is-3">Abstract</h2>
                     <div class="content has-text-justified">
                         <p style="font-size: 125%">
-                            Operating robotic manipulators through interfaces like joysticks often requires frequent switching between control modes, where each mode maps the joystick's movements to specific actions on the robot. This frequent switching can make teleoperation cumbersome and inefficient, especially in assistive applications where users with motor impairments rely on simplified control interfaces. Existing shared autonomy solutions, such as heuristic-driven or demonstration-based methods, tend to be task-specific and lack generalizability. In this paper, we introduce LLM-Driven Automatic Mode Switching (LAMS), which leverages Large Language Models (LLMs) to automatically switch control modes based on task context, enabling more intuitive control without requiring task-specific adjustments. Unlike existing approaches, LAMS requires no prior task demonstrations and incrementally adapts to user behavior over time by incorporating mode-switching examples into its prompts. We validate LAMS on long-horizon tasks through an ablation study and a user study with 10 participants, showing that LAMS significantly reduces manual switches and is preferred over other methods.
+                            Teleoperating robotic manipulators via interfaces like joysticks often requires frequent switching between control modes, where each mode maps joystick movements to specific robot actions. This frequent switching can make teleoperation cumbersome and inefficient. Existing automatic mode-switching solutions, such as heuristic-based or learning-based methods, are often task-specific and lack generalizability. In this paper, we introduce LLM-Driven Automatic Mode Switching (LAMS), a novel approach that leverages Large Language Models (LLMs) to automatically switch control modes based on task context. Unlike existing methods, LAMS requires no prior task demonstrations and incrementally improves by integrating user-generated mode-switching examples. We validate LAMS through an ablation study and a user study with 10 participants on complex, long-horizon tasks, demonstrating that LAMS effectively reduces manual mode switches, is preferred over alternative methods, and improves performance over time.
 
 <br>
 <br>
@@ -132,14 +134,17 @@
             <div class="rows">
                 <div class="rows is-centered ">
                     <div class="row is-full-width">
-                        <h2 class="title is-3"><span class="dvima">Out-of-Distribution Classification</span></h2>
-                        <img src="assets/images/pipeline.png" class="interpolation-image" alt=""
-                            style="display: block; margin-left: auto; margin-right: auto; max-width: 80%;" /> 
+                        <h2 class="title is-3"><span class="dvima">Control Interface</span></h2>
+                      
+                        <img src="assets/images/manipulator_interface.png" class="interpolation-image" alt=""
+                            style="display: block; max-width: 40%;" /> 
+                            <br>
+                            <span style="font-size: 125%">
+                                We use an Xbox Controller as our control interface, where the left joystick is used to send movement commands.        
+                                <!-- <span style="font-weight: bold">We use an Xbox Controller as our control interface, where the left joystick is used to send movement commands.</span>                 -->
+                            </span>
                         <br>
-                        <span style="font-size: 125%">
-                            <span style="font-weight: bold">This benchmark is used for practical out-of-distribution applications for learning-based EMG control interfaces.</span> 
-                            We present two types of out-of-distribution tasks for machine learning: A) intersubject classification, and B) adaptation using train-test splits for time-series.
-                        </span>
+                        
                     </div>
                 </div>
             </div>
@@ -151,19 +156,91 @@
             <div class="rows">
                 <div class="rows is-centered ">
                     <div class="row is-full-width">
-                        <h2 class="title is-3"><span class="dvima">Distribution shifts</span></h2>
-                        <img src="assets/images/distance-matrices.png" class="interpolation-image" alt=""
-                            style="display: block; margin-left: auto; margin-right: auto; max-width: 80%;" />
-                        <br>
-                        <span style="font-size: 125%">Distribution shifts occur over multiple sessions and samples, and the model should generalize or adapt to these changes. 
-                            This benchmark evaluates the model's ability to generalize or adapt to distribution shifts in the data.</span>
+                        <h2 class="title is-3"><span class="dvima">Methodology</span></h2>
+                        <span style="font-size: 125%">
+                            <!-- <span style="font-weight: bold">Our goal is to generate an effective mapping that aligns each joystick movement direction with a corresponding robot action direction, which together with the user action generates the robot action.</span>     -->
+                            Our goal is to generate an effective mapping that aligns each joystick movement direction with a corresponding robot action direction, which together with the user action generates the robot action.                  
                         </span>
+                        <br>
+                        <br>
+                        <br>
+                        <img src="assets/images/lams_flowchart.png" class="interpolation-image" alt=""
+                            style="display: block; margin-left: auto; margin-right: auto; max-width: 80%;" /> 
+                            <br>
+                            <span style="font-size: 125%">
+                                <!-- <span style="font-weight: bold">LAMS framework, consisting of three main components: LLM Input Generation, LLM Output Processing, and Incremental Improvement.</span>  -->
+                                LAMS framework, consisting of three main components: LLM Input Generation, LLM Output Processing, and Incremental Improvement.
+                                
+                            </span>
+                        <br>
+                        
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <section class="section">
+        <div class="container is-max-widescreen">
+            <div class="rows">
+                <div class="rows is-centered ">
+                    <div class="row is-full-width">
+                        <h2 class="title is-3"><span class="dvima">Human Study</span></h2>
+                        <span style="font-size: 125%">
+                            <!-- <span style="font-weight: bold">Our goal is to generate an effective mapping that aligns each joystick movement direction with a corresponding robot action direction, which together with the user action generates the robot action.</span>     -->
+                            We conducted a user study with 10 participants (8 males, 2 females) aged 21 to 25 (mean age: 23.7), under a university-approved human subjects safety protocol. 
+                        </span>
+                        <br>
+                        <div class="columns">
+                            <div class="column">
+                                <video width="100%" controls>
+                                    <source src="videos/first.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <p  style="font-size: 125%">In the initial trials, while able to provide useful mapping predictions, LAMS encounters some errors due to limited task knowledge, requiring users to occasionally perform manual mode switches.</p>
+                            </div>
+                            <div class="column">
+                                <video width="100%" controls>
+                                    <source src="videos/fourth.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <p  style="font-size: 125%">By the third trials, with LLM prompts enhanced by integrating prior user manual switches, LAMS performs automatic mode switches accurately with minimal user intervention.</p>
+                            </div>
+                        </div>
+                        <br>
+                        <span style="font-size: 125%">Statistical Analysis of the number of manual mode switches and user-reported preferences support the following two hypotheses:</span>
+                        <ul style="font-size: 125%; margin-top: 15px; list-style-type: disc; padding-left: 20px;">
+                            <li><strong>H1:</strong> LAMS enables users to complete complex multi-stage tasks with fewer manual mode switches, and is preferred over alternative mode-switching methods.</li>
+                            <li><strong>H2:</strong> LAMS improves its automatic mode-switching ability over time as a user repeatedly performs a task, in contrast to a static LLM-based method. </li>
+                        </ul>
+
+                        <div class="columns" style="display: flex; align-items: flex-end; justify-content: space-between; margin-top: 20px;">
+                            <div class="column">
+                                <img src="assets/images/mode_switches_jar.png" alt="Mean Task Completion Times" style="width: 100%; display: block; margin-left: auto; margin-right: auto;">
+                                <!-- <p style="text-align: center;">Task Completion Times</p> -->
+                            </div>
+                            <div class="column">
+                                <img src="assets/images/mode_switches_book.png" alt="Median Likert Item Responses" style="width: 100%; display: block; margin-left: auto; margin-right: auto;">
+                                <!-- <p style="text-align: center;">Median Likert Item Responses</p> -->
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+
+                        <img src="assets/images/preferences.png" class="interpolation-image" alt=""
+                            style="display: block; margin-left: auto; margin-right: auto; max-width: 80%;" /> 
+                            
+                            <span style="font-size: 125%; text-align: center; display: block;">
+                                User reported preferences
+                            </span>   
+                        <br>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
 </code></pre>
     </div>
 </section>
@@ -184,6 +261,14 @@
     </footer>
 
 </body>
+
+
+
+
+
+
+
+
 
 <script>
 
@@ -246,6 +331,10 @@
           timeoutIds.push(setTimeout(typeWriter, 1, txt, i, q, num, text1, text2));
       }
   }
+
+</script>
+
+</html>
 
 </script>
 
